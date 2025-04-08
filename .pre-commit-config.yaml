@@ -1,0 +1,16 @@
+repos:
+  - repo: local
+    hooks:
+      - id: buf-format
+        name: Format Protobuf Files
+        entry: buf format -w
+        language: system
+        files: \.proto$
+        pass_filenames: false
+
+      - id: buf-breaking
+        name: Check Protobuf Breaking Changes
+        entry: buf breaking --against "ssh://git@github.com:Wu-Jiayang/test-b.git#branch=main"
+        language: system
+        files: \.proto$
+        pass_filenames: false
