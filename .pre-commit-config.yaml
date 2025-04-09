@@ -10,7 +10,7 @@ repos:
 
       - id: buf-breaking
         name: Check Protobuf Breaking Changes
-        entry: buf breaking --against "ssh://git@github.com:Wu-Jiayang/test-b.git#branch=main"
+        entry: buf breaking --against "https://github.com/Wu-Jiayang/test-b.git#branch=main"
         language: system
         files: \.proto$
         pass_filenames: false

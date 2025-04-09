@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package content; // Package name
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+enum ContentType {
+  CONTENT_TYPE_UNKNOWN = 0;
+  CONTENT_TYPE_AUDIO = 1;
+  CONTENT_TYPE_VIDEO = 2;
+  CONTENT_TYPE_TEXT = 3;
+}
+
+// 用户在资讯类别下的停留时长
+message CategoryStayDuration {
+  string category_name = 1;
+  google.protobuf.Duration stay_duration = 2;
+}
+
+// 用户的资讯浏览记录
+message ContentViewRecord {
+  string content_view_record_id = 1;
+
+  // 资讯id
+  string content_id = 2;
+
+  // 用户id
+  string user_id = 3;
+
+  // 用户浏览时间
+  google.protobuf.Timestamp created_at = 4;
+
+  // 用户本次浏览停留时长
+  google.protobuf.Duration stay_duration = 5;
+
+  // 资讯标题
+  string content_title = 6;
+
+  // 资讯类别
+  repeated string content_categories = 7;
+
+  // 资讯标签
+  repeated string content_tags = 8;
+
+  // 资讯类型
+  ContentType content_type = 9;
+
+  // 资讯封面图片url
+  string content_thumbnail_url = 10;
+}
